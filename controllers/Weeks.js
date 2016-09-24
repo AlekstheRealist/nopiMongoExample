@@ -17,8 +17,9 @@ router.route('')
 
     .get(function(req, res) {
         Week.find(function(err, weeks) {
-            if (err)
+            if (err) {
                 res.send(err);
+            }
             res.json(weeks);
         });
     })
@@ -28,8 +29,9 @@ router.route('')
         week.name = req.body.name;
 
         week.save(function(err) {
-            if (err)
+            if (err) {
                 res.send(err);
+            }
 
             res.json({message: 'Week was created!'});
         });
@@ -42,7 +44,7 @@ router.route('')
 //         Week.findById(req.params.week_id, function(err, week) {
 //             if (err)
 //                 res.send(err);
-
+            
 //             res.json(week);
 //         });
 //     })
